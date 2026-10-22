@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details | SHINE TECH</title>
+  <meta name="description" content="View authentic tech product specifications, verified customer reviews, EMI options, and warranty information on SHINE TECH." />
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 Pro / Free -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Master Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css?v=1.1" />
+  <link rel="stylesheet" href="../css/responsive.css?v=1.1" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar">
+    <div class="container announcement-content">
+      <div class="announcement-left">
+        <span class="announcement-badge">⚡ 100% GENUINE</span>
+        <span class="announcement-text">All products covered under manufacturer warranty &amp; 7-day replacement</span>
+      </div>
+      <div class="announcement-right">
+        <a href="../index.html" class="announcement-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="products.html" class="announcement-link"><i class="fa-solid fa-boxes-stacked"></i> All Products</a>
+        <a href="../index.html#footerContact" class="announcement-link"><i class="fa-solid fa-headset"></i> 24/7 Tech Support</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Branded Header -->
+  <header class="site-header">
+    <div class="container navbar-container">
+      
+      <!-- Brand Logo -->
+      <a href="../index.html" class="brand-link" aria-label="SHINE TECH Home">
+        <img src="../assets/images/shine-tech-logo.png" alt="SHINE TECH - Smarter Tech. Brighter You." class="brand-logo-img" />
+      </a>
+
+      <!-- Search Bar -->
+      <div class="header-search">
+        <form class="search-form" id="searchForm" role="search">
+          <select class="search-category-select" id="searchCategorySelect" aria-label="Search Category">
+            <option value="all">All Categories</option>
+          </select>
+          <input type="text" 
+                 class="search-input" 
+                 id="searchInput" 
+                 placeholder="Search for electronics, components..." 
+                 autocomplete="off" 
+                 aria-label="Search products" />
+          <button type="submit" class="search-btn" aria-label="Submit Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="search-suggestions-dropdown" id="searchSuggestionsDropdown"></div>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="header-actions">
+        
+        <!-- Account Dropdown -->
+        <div class="account-control">
+          <button class="account-btn" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>Account</span>
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="account-dropdown-menu">
+            <div class="account-dropdown-header">
+              <span>Welcome to SHINE TECH</span>
+              <strong>Demo Customer</strong>
+            </div>
+            <a href="cart.html" class="account-dropdown-item">
+              <i class="fa-solid fa-box-open"></i> My Orders
+            </a>
+            <a href="wishlist.html" class="account-dropdown-item">
+              <i class="fa-solid fa-heart"></i> My Wishlist
+            </a>
+            <a href="products.html?filter=trending" class="account-dropdown-item">
+              <i class="fa-solid fa-bolt"></i> Trending Gadgets
+            </a>
+            <a href="../index.html#footerContact" class="account-dropdown-item">
+              <i class="fa-solid fa-circle-question"></i> Customer Care
+            </a>
+          </div>
+        </div>
+
+        <!-- Wishlist -->
+        <a href="wishlist.html" class="nav-action-link wishlist-link" aria-label="Wishlist">
+          <div class="icon-badge-wrapper">
+            <i class="fa-solid fa-heart"></i>
+            <span class="counter-badge" id="headerWishlistCount" style="display: none;">0</span>
+          </div>
+          <span>Wishlist</span>
+        </a>
+
+        <!-- Cart -->
+        <a href="cart.html" class="nav-action-link cart-link" aria-label="Shopping Cart">
+          <div class="icon-badge-wrapper">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="counter-badge" id="headerCartCount" style="display: none;">0</span>
+          </div>
+          <span>Cart</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Horizontal Category Strip (Flipkart style) -->
+  <nav class="category-nav-bar" aria-label="Catalog Categories">
+    <div class="container category-nav-container" id="categoryNavContainer">
+      <!-- Injected via JS -->
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="drawer-header">
+      <img src="../assets/images/shine-tech-logo.png" alt="SHINE TECH" class="drawer-logo" />
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="drawer-user-card">
+      <div class="drawer-user-avatar"><i class="fa-solid fa-user"></i></div>
+      <div class="drawer-user-info">
+        <strong>Hello, Tech Explorer</strong>
+        <span>Welcome to SHINE TECH</span>
+      </div>
+    </div>
+    <div class="drawer-section-title">Shop by Category</div>
+    <nav class="drawer-nav-list" id="drawerNavList"></nav>
+  </aside>
+
+  <!-- Product Details Main Content Section -->
+  <main class="container" style="padding-bottom: 50px;">
+    
+    <!-- Dynamic Breadcrumbs -->
+    <nav class="details-breadcrumb" id="detailsBreadcrumb" aria-label="Breadcrumb navigation">
+      <!-- Injected via js/product-details.js -->
+    </nav>
+
+    <!-- Product Layout Container (Gallery + Info + Specs + Reviews) -->
+    <div id="detailsContainer">
+      <!-- Populated dynamically by js/product-details.js -->
+    </div>
+
+    <!-- Similar Products Shelf -->
+    <div class="section-shelf" id="similarSection" style="margin-top: 40px;">
+      <div class="shelf-header">
+        <div class="shelf-title-group">
+          <h2 class="shelf-title">
+            <i class="fa-solid fa-layer-group"></i> Similar Products You May Like
+          </h2>
+          <p class="shelf-subtitle" id="similarSubtitle">Explore related high-performance hardware and accessories</p>
+        </div>
+        <a href="products.html" class="shelf-view-all" id="similarViewAllLink">
+          View All <i class="fa-solid fa-angle-right"></i>
+        </a>
+      </div>
+
+      <div class="shelf-rail-wrapper">
+        <button class="rail-arrow-btn left" id="railPrevBtn" aria-label="Scroll left">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="shelf-rail" id="similarProductsRail">
+          <!-- Populated by js/product-details.js -->
+        </div>
+        <button class="rail-arrow-btn right" id="railNextBtn" aria-label="Scroll right">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Professional Marketplace Footer -->
+  <footer class="site-footer" style="margin-top: 50px;">
+    
+    <!-- Newsletter Strip -->
+    <div class="footer-newsletter-strip">
+      <div class="container newsletter-content">
+        <div class="newsletter-text">
+          <h3>Stay Ahead with SHINE TECH Drops</h3>
+          <p>Get exclusive early access to flash sales, hardware leaks, and VIP discount coupons.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed to SHINE TECH Insights!', 'success'); this.reset();">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address..." required aria-label="Email" />
+          <button type="submit" class="newsletter-btn">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Footer Links Grid -->
+    <div class="container footer-main-content">
+      <div class="footer-grid">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col brand-col">
+          <a href="../index.html" class="footer-logo-link">
+            <img src="../assets/images/shine-tech-logo.png" alt="SHINE TECH" class="footer-logo" />
+          </a>
+          <p class="footer-tagline">
+            Smarter Tech. Brighter You. India's premier destination for genuine electronics, next-gen PC gaming components, and smart lifestyle tech.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Categories -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Popular Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="products.html?category=mobiles">Smartphones &amp; 5G</a></li>
+            <li><a href="products.html?category=laptops">Laptops &amp; MacBooks</a></li>
+            <li><a href="products.html?category=gpus">Graphics Cards</a></li>
+            <li><a href="products.html?category=cpus">Processors (CPUs)</a></li>
+            <li><a href="products.html?category=headphones">Headphones &amp; ANC</a></li>
+            <li><a href="products.html?category=smartwatches">Smartwatches</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="cart.html">Track Your Order</a></li>
+            <li><a href="wishlist.html">Your Wishlist</a></li>
+            <li><a href="../index.html#footerContact">Return &amp; Replacement Policy</a></li>
+            <li><a href="../index.html#footerContact">SHINE Assured Guarantee</a></li>
+            <li><a href="../index.html#footerContact">Help Center &amp; FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Support -->
+        <div class="footer-col" id="footerContact">
+          <h4 class="footer-col-title">Contact Support</h4>
+          <div class="contact-info-block">
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>1800-419-7446 (Toll Free)</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>support@shinetech.in</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>SHINE TECH Towers, Outer Ring Road, Bengaluru - 560103</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon - Sun: 9:00 AM - 9:00 PM IST</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Trust Strip -->
+    <div class="container footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="copyright-text">
+          &copy; 2026 SHINE TECH. All Rights Reserved. Smarter Tech. Brighter You.
+        </div>
+        <div class="payment-methods-strip">
+          <span class="payment-method-pill">VISA</span>
+          <span class="payment-method-pill">MASTERCARD</span>
+          <span class="payment-method-pill">RUPAY</span>
+          <span class="payment-method-pill">UPI</span>
+          <span class="payment-method-pill">NETBANKING</span>
+          <span class="payment-method-pill">EMI AVAILABLE</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/products.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/product-details.js"></script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHINE TECH | Smarter Tech. Brighter You. | Electronics Marketplace</title>
+  <meta name="description" content="Shop the latest genuine mobiles, laptops, graphics cards, processors, audio gear, and electronics at SHINE TECH. Experience India's premier tech shopping destination." />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=1.1" />
+  <link rel="stylesheet" href="css/responsive.css?v=1.1" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Offers and Support announcement">
+    <div class="container announcement-content">
+      <div class="announcement-left">
+        <span class="announcement-badge">⚡ FESTIVE DROP</span>
+        <span class="announcement-text">
+          Extra 10% Instant Discount on HDFC & ICICI Cards | <strong>Free Express Delivery</strong> Across India
+        </span>
+      </div>
+      <div class="announcement-right">
+        <a href="pages/products.html?filter=deals" class="announcement-link">
+          <i class="fa-solid fa-fire"></i> Daily Deals
+        </a>
+        <a href="#footerContact" class="announcement-link">
+          <i class="fa-solid fa-headset"></i> 24/7 Tech Support
+        </a>
+        <a href="pages/products.html" class="announcement-link">
+          <i class="fa-solid fa-truck-fast"></i> Track Order
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Branded Header -->
+  <header class="site-header">
+    <div class="container navbar-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-link" aria-label="SHINE TECH Home">
+        <img src="assets/images/shine-tech-logo.png" alt="SHINE TECH - Smarter Tech. Brighter You." class="brand-logo-img" />
+      </a>
+
+      <!-- Flipkart-Style Search Bar with Live Suggestions -->
+      <div class="header-search">
+        <form class="search-form" id="searchForm" role="search">
+          <select class="search-category-select" id="searchCategorySelect" aria-label="Select search category">
+            <option value="all">All Categories</option>
+          </select>
+          <input type="text" 
+                 class="search-input" 
+                 id="searchInput" 
+                 placeholder="Search for Mobiles, RTX 4090, M3 MacBooks, Sony ANC..." 
+                 autocomplete="off" 
+                 aria-label="Search electronics products" />
+          <button type="submit" class="search-btn" aria-label="Submit Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <!-- Live Search Suggestions Container -->
+        <div class="search-suggestions-dropdown" id="searchSuggestionsDropdown"></div>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="header-actions">
+        
+        <!-- Account Dropdown -->
+        <div class="account-control">
+          <button class="account-btn" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>Account</span>
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="account-dropdown-menu">
+            <div class="account-dropdown-header">
+              <span>Welcome to SHINE TECH</span>
+              <strong>Demo Customer</strong>
+            </div>
+            <a href="pages/cart.html" class="account-dropdown-item">
+              <i class="fa-solid fa-box-open"></i> My Orders
+            </a>
+            <a href="pages/wishlist.html" class="account-dropdown-item">
+              <i class="fa-solid fa-heart"></i> My Wishlist
+            </a>
+            <a href="pages/products.html?filter=trending" class="account-dropdown-item">
+              <i class="fa-solid fa-bolt"></i> Trending Gadgets
+            </a>
+            <a href="#footerContact" class="account-dropdown-item">
+              <i class="fa-solid fa-circle-question"></i> Customer Care
+            </a>
+          </div>
+        </div>
+
+        <!-- Wishlist Link -->
+        <a href="pages/wishlist.html" class="nav-action-link wishlist-link" aria-label="Wishlist">
+          <div class="icon-badge-wrapper">
+            <i class="fa-solid fa-heart"></i>
+            <span class="counter-badge" id="headerWishlistCount" style="display: none;">0</span>
+          </div>
+          <span>Wishlist</span>
+        </a>
+
+        <!-- Cart Link -->
+        <a href="pages/cart.html" class="nav-action-link cart-link" aria-label="Shopping Cart">
+          <div class="icon-badge-wrapper">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="counter-badge" id="headerCartCount" style="display: none;">0</span>
+          </div>
+          <span>Cart</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Flipkart-Style Horizontal Category Navigation Strip -->
+  <nav class="category-nav-bar" aria-label="Product Categories">
+    <div class="container category-nav-container" id="categoryNavContainer">
+      <!-- Injected via JavaScript from SHINE_CATEGORIES -->
+    </div>
+  </nav>
+
+  <!-- Main Homepage Content -->
+  <main class="site-main">
+
+    <!-- Hero Carousel & Promo Banners -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        
+        <!-- Interactive Hero Carousel -->
+        <div class="hero-carousel" aria-label="Featured Promotions Carousel">
+          <div class="carousel-slides">
+            
+            <!-- Slide 1: Flagship Mobiles -->
+            <div class="carousel-slide active" style="background: linear-gradient(135deg, #080D19 0%, #0F1A33 60%, #087BFF 100%);">
+              <div class="slide-content">
+                <span class="slide-tag"><i class="fa-solid fa-sparkles"></i> NEXT-GEN LAUNCH</span>
+                <h1 class="slide-title">Titanium Flagships. <span>Unrivaled Speed.</span></h1>
+                <p class="slide-subtitle">
+                  iPhone 16 Pro Max, Galaxy S24 Ultra & OnePlus 12. Experience revolutionary AI computing with up to ₹15,000 instant bank discount.
+                </p>
+                <div class="slide-cta-group">
+                  <a href="pages/products.html?category=mobiles" class="btn-primary">
+                    <i class="fa-solid fa-bag-shopping"></i> Shop Smartphones
+                  </a>
+                  <a href="pages/product-details.html?id=mob-001" class="btn-secondary">
+                    View iPhone 16 Pro
+                  </a>
+                </div>
+              </div>
+              <div class="slide-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&auto=format&fit=crop&q=80" 
+                     alt="Apple iPhone 16 Pro Max Desert Titanium" 
+                     onerror="handleImageError(this, 'mob-001')" />
+              </div>
+            </div>
+
+            <!-- Slide 2: PC Hardware & RTX GPUs -->
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #050811 0%, #111A30 50%, #00C8F8 100%);">
+              <div class="slide-content">
+                <span class="slide-tag" style="background: rgba(8, 123, 255, 0.2); color: #FFFFFF;"><i class="fa-solid fa-gamepad"></i> EXTREME RIG BUILDER</span>
+                <h2 class="slide-title">Unleash Ultimate <span>Gaming Power</span></h2>
+                <p class="slide-subtitle">
+                  GeForce RTX 4090, Intel Core i9 14900K & AMD Ryzen 7 7800X3D. High frame-rates, liquid thermals, and true PCIe 5.0 speed.
+                </p>
+                <div class="slide-cta-group">
+                  <a href="pages/products.html?category=gpus" class="btn-primary">
+                    <i class="fa-solid fa-microchip"></i> Explore GPUs
+                  </a>
+                  <a href="pages/products.html?category=cpus" class="btn-secondary">
+                    Desktop Processors
+                  </a>
+                </div>
+              </div>
+              <div class="slide-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&auto=format&fit=crop&q=80" 
+                     alt="ASUS ROG Strix GeForce RTX 4090" 
+                     onerror="handleImageError(this, 'gpu-001')" />
+              </div>
+            </div>
+
+            <!-- Slide 3: Studio & ANC Audio -->
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #090E1D 0%, #15223F 65%, #2563EB 100%);">
+              <div class="slide-content">
+                <span class="slide-tag"><i class="fa-solid fa-volume-high"></i> PURE ACOUSTICS</span>
+                <h2 class="slide-title">Silence The Noise. <span>Hear The Pure.</span></h2>
+                <p class="slide-subtitle">
+                  Sony WH-1000XM5, Bose QuietComfort Ultra & Marshall Stanmore III. Studio grade dynamic range with industry-leading ANC.
+                </p>
+                <div class="slide-cta-group">
+                  <a href="pages/products.html?category=headphones" class="btn-primary">
+                    <i class="fa-solid fa-headphones"></i> Explore Audio
+                  </a>
+                  <a href="pages/products.html?category=earbuds" class="btn-secondary">
+                    True Wireless TWS
+                  </a>
+                </div>
+              </div>
+              <div class="slide-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" 
+                     alt="Sony WH-1000XM5 ANC Headphones" 
+                     onerror="handleImageError(this, 'hdp-001')" />
+              </div>
+            </div>
+
+            <!-- Slide 4: Pro Laptops & MacBooks -->
+            <div class="carousel-slide" style="background: linear-gradient(135deg, #040812 0%, #121E38 60%, #0088CC 100%);">
+              <div class="slide-content">
+                <span class="slide-tag"><i class="fa-solid fa-laptop-code"></i> PRO PERFORMANCE</span>
+                <h2 class="slide-title">Pro Laptops. <span>Zero Compromise.</span></h2>
+                <p class="slide-subtitle">
+                  M3 Pro MacBook Pro 14, ROG Zephyrus G16 & Dell XPS 13. Engineered for developers, 3D artists, and creative pros.
+                </p>
+                <div class="slide-cta-group">
+                  <a href="pages/products.html?category=laptops" class="btn-primary">
+                    <i class="fa-solid fa-laptop"></i> Shop Laptops
+                  </a>
+                  <a href="pages/product-details.html?id=lap-001" class="btn-secondary">
+                    MacBook Pro 14
+                  </a>
+                </div>
+              </div>
+              <div class="slide-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80" 
+                     alt="Apple MacBook Pro 14 M3 Pro" 
+                     onerror="handleImageError(this, 'lap-001')" />
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-btn prev" aria-label="Previous Slide">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next" aria-label="Next Slide">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <!-- Slide Dots -->
+          <div class="carousel-indicators"></div>
+        </div>
+
+        <!-- Hero Side Promo Cards -->
+        <div class="hero-side-promos">
+          
+          <div class="promo-card">
+            <div>
+              <span class="promo-badge">⚡ DEAL OF THE HOUR</span>
+              <h3 class="promo-title">Samsung Galaxy Watch 6</h3>
+              <p class="promo-subtitle">Rotating Bezel & ECG Sensor</p>
+              <div class="promo-price-tag">₹27,999 <span style="font-size: 0.8rem; text-decoration: line-through; color: #9E9E9E;">₹39,999</span></div>
+            </div>
+            <a href="pages/product-details.html?id=wat-002" class="promo-link">
+              Claim Deal Now <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="promo-card dark-promo">
+            <div>
+              <span class="promo-badge">🔥 PC MASTER RACE</span>
+              <h3 class="promo-title">Samsung 990 PRO 2TB</h3>
+              <p class="promo-subtitle">7450 MB/s NVMe Gen4 Heatsink</p>
+              <div class="promo-price-tag">₹17,999 <span style="font-size: 0.8rem; text-decoration: line-through; color: #8CA0BE;">₹24,999</span></div>
+            </div>
+            <a href="pages/product-details.html?id=ssd-001" class="promo-link">
+              Upgrade Storage <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 1: Deals of the Day (Flipkart Shelf with Countdown Timer) -->
+    <section class="container">
+      <div class="section-shelf">
+        <div class="shelf-header">
+          <div class="shelf-title-group">
+            <h2 class="shelf-title">
+              <i class="fa-solid fa-bolt"></i> Deals of the Day
+            </h2>
+            <div class="deals-timer-badge">
+              <i class="fa-regular fa-clock"></i>
+              <span>Ends in:</span>
+              <span class="timer-digits" id="dealsCountdown">08h : 34m : 18s</span>
+            </div>
+          </div>
+          <a href="pages/products.html?filter=deals" class="shelf-view-all-btn">
+            View All Deals <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </div>
+
+        <div class="shelf-rail-wrapper">
+          <button class="rail-arrow-btn left" aria-label="Scroll deals left">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="shelf-rail" id="dealsShelfRail">
+            <!-- Dynamically populated via JS -->
+          </div>
+          <button class="rail-arrow-btn right" aria-label="Scroll deals right">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Top Tech Categories Visual Grid -->
+    <section class="container" style="margin-bottom: 24px;">
+      <div class="section-shelf" style="padding-bottom: 24px;">
+        <div class="shelf-header">
+          <div class="shelf-title-group">
+            <h2 class="shelf-title">
+              <i class="fa-solid fa-cubes"></i> Featured Categories
+            </h2>
+          </div>
+          <a href="pages/products.html" class="shelf-view-all-btn">
+            All 18 Categories
+          </a>
+        </div>
+
+        <div class="featured-categories-grid" id="featuredCategoriesGrid">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PC Gaming & Custom Rig Showcase -->
+    <section class="container">
+      <!-- Gaming hardware banner -->
+      <div class="gaming-hardware-banner">
+        <div class="gaming-banner-text">
+          <div class="gaming-banner-tag">HARDWARE ENTHUSIAST VAULT</div>
+          <h2 class="gaming-banner-title">Build Your Dream <span>PC Battlestation</span></h2>
+          <p class="gaming-banner-desc">
+            Explore NVIDIA RTX 40-Series GPUs, Intel 14th Gen & AMD Ryzen 7000 processors, DDR5 memory kits, and Gen5 NVMe storage for boundary-breaking computing.
+          </p>
+          <div class="gaming-banner-tags">
+            <span class="gaming-pill"><i class="fa-solid fa-microchip"></i> Intel Core i9 & AMD Ryzen 9</span>
+            <span class="gaming-pill"><i class="fa-solid fa-shield"></i> NVIDIA DLSS 3.5 & Frame Gen</span>
+            <span class="gaming-pill"><i class="fa-solid fa-bolt"></i> Gen5 NVMe 11,700 MB/s</span>
+            <span class="gaming-pill"><i class="fa-solid fa-memory"></i> 6400MHz DDR5 Memory</span>
+          </div>
+        </div>
+        <div>
+          <a href="pages/products.html?category=gpus" class="btn-primary" style="background: var(--color-cyan); color: #080D19; font-weight: 800;">
+            <i class="fa-solid fa-vr-cardboard"></i> Shop PC Hardware
+          </a>
+        </div>
+      </div>
+
+      <!-- Gaming & Hardware Rail -->
+      <div class="section-shelf">
+        <div class="shelf-header">
+          <div class="shelf-title-group">
+            <h2 class="shelf-title">
+              <i class="fa-solid fa-microchip"></i> High-Performance PC Hardware & GPUs
+            </h2>
+          </div>
+          <a href="pages/products.html?category=gpus" class="shelf-view-all-btn">
+            View All Components
+          </a>
+        </div>
+
+        <div class="shelf-rail-wrapper">
+          <button class="rail-arrow-btn left" aria-label="Scroll hardware left">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="shelf-rail" id="hardwareShelfRail">
+            <!-- Dynamically populated via JS -->
+          </div>
+          <button class="rail-arrow-btn right" aria-label="Scroll hardware right">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Audio & Smart Wearables Showcase -->
+    <section class="container">
+      <div class="section-shelf">
+        <div class="shelf-header">
+          <div class="shelf-title-group">
+            <h2 class="shelf-title">
+              <i class="fa-solid fa-headphones"></i> Trending Audio & Smart Wearables
+            </h2>
+          </div>
+          <a href="pages/products.html?category=headphones" class="shelf-view-all-btn">
+            View Audio & Wearables
+          </a>
+        </div>
+
+        <div class="shelf-rail-wrapper">
+          <button class="rail-arrow-btn left" aria-label="Scroll audio left">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="shelf-rail" id="audioShelfRail">
+            <!-- Dynamically populated via JS -->
+          </div>
+          <button class="rail-arrow-btn right" aria-label="Scroll audio right">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Customer Favorites & Flagships (Grid) -->
+    <section class="container" style="margin-bottom: 30px;">
+      <div class="section-shelf">
+        <div class="shelf-header">
+          <div class="shelf-title-group">
+            <h2 class="shelf-title">
+              <i class="fa-solid fa-star"></i> Featured Tech Flagships
+            </h2>
+          </div>
+          <a href="pages/products.html?filter=featured" class="shelf-view-all-btn">
+            Explore All Flagships
+          </a>
+        </div>
+
+        <div class="products-grid" id="featuredProductsGrid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Official Brand Partners Showcase -->
+    <section class="container brands-showcase-section">
+      <div class="brands-container">
+        <div class="brand-partner-item" title="Apple Authorized Products">
+          <i class="fa-brands fa-apple"></i> Apple
+        </div>
+        <div class="brand-partner-item" title="Samsung Official">
+          <i class="fa-solid fa-mobile-screen"></i> SAMSUNG
+        </div>
+        <div class="brand-partner-item" title="ASUS Republic of Gamers">
+          <i class="fa-solid fa-gamepad"></i> ASUS ROG
+        </div>
+        <div class="brand-partner-item" title="Sony Hi-Res Audio">
+          <i class="fa-solid fa-music"></i> SONY
+        </div>
+        <div class="brand-partner-item" title="Intel Corporation">
+          <i class="fa-solid fa-microchip"></i> intel
+        </div>
+        <div class="brand-partner-item" title="AMD Advanced Micro Devices">
+          <i class="fa-solid fa-bolt"></i> AMD
+        </div>
+        <div class="brand-partner-item" title="Corsair Gaming">
+          <i class="fa-solid fa-shield"></i> CORSAIR
+        </div>
+        <div class="brand-partner-item" title="Logitech Workspace">
+          <i class="fa-solid fa-keyboard"></i> logitech
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Trust Badges / Value Propositions -->
+    <section class="container trust-features-section">
+      <div class="trust-features-grid">
+        
+        <div class="trust-card">
+          <div class="trust-icon-box">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="trust-info">
+            <h4>100% Genuine Tech</h4>
+            <p>Direct from verified brand distributors with official brand warranty.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box">
+            <i class="fa-solid fa-rotate-left"></i>
+          </div>
+          <div class="trust-info">
+            <h4>7-Day Easy Returns</h4>
+            <p>Hassle-free replacement for defective or damaged electronics.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <div class="trust-info">
+            <h4>Express Fast Shipping</h4>
+            <p>Fast dispatch across 19,000+ PIN codes with live tracking.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <div class="trust-info">
+            <h4>Bank-Grade Security</h4>
+            <p>256-bit SSL encrypted checkout supporting UPI, Cards & No-Cost EMI.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Professional Marketplace Footer -->
+  <footer class="site-footer">
+    
+    <!-- Newsletter Strip -->
+    <div class="footer-newsletter-strip">
+      <div class="container newsletter-content">
+        <div class="newsletter-text">
+          <h3>Stay Ahead with SHINE TECH Drops</h3>
+          <p>Get exclusive early access to flash sales, hardware leaks, and VIP discount coupons.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed to SHINE TECH Insights!', 'success'); this.reset();">
+          <input type="email" class="newsletter-input" placeholder="Enter your corporate or personal email..." required aria-label="Email for newsletter" />
+          <button type="submit" class="newsletter-btn">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Footer Links Grid -->
+    <div class="container footer-main">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-col footer-brand-info">
+          <img src="assets/images/shine-tech-logo.png" alt="SHINE TECH" class="footer-logo" />
+          <div class="footer-tagline">SMARTER TECH. BRIGHTER YOU.</div>
+          <p class="footer-about-text">
+            SHINE TECH is India's dedicated electronics marketplace crafted for tech enthusiasts, gamers, content creators, and everyday innovators seeking authentic devices and components.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+          </div>
+        </div>
+
+        <!-- Popular Categories -->
+        <div class="footer-col">
+          <h4 class="footer-column-title">CATEGORIES</h4>
+          <ul class="footer-links-list">
+            <li><a href="pages/products.html?category=mobiles" class="footer-link">Mobiles & 5G</a></li>
+            <li><a href="pages/products.html?category=laptops" class="footer-link">Laptops & MacBooks</a></li>
+            <li><a href="pages/products.html?category=gpus" class="footer-link">Graphics Cards (RTX)</a></li>
+            <li><a href="pages/products.html?category=cpus" class="footer-link">CPUs & Processors</a></li>
+            <li><a href="pages/products.html?category=headphones" class="footer-link">ANC Headphones</a></li>
+            <li><a href="pages/products.html?category=ssds" class="footer-link">NVMe SSDs & Storage</a></li>
+            <li><a href="pages/products.html?category=keyboards" class="footer-link">Mechanical Keyboards</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care -->
+        <div class="footer-col">
+          <h4 class="footer-column-title">HELP & SUPPORT</h4>
+          <ul class="footer-links-list">
+            <li><a href="pages/cart.html" class="footer-link">Payments & EMI</a></li>
+            <li><a href="pages/cart.html" class="footer-link">Shipping & Delivery</a></li>
+            <li><a href="pages/products.html" class="footer-link">Cancellation & Returns</a></li>
+            <li><a href="pages/wishlist.html" class="footer-link">Wishlist Management</a></li>
+            <li><a href="#footerContact" class="footer-link">Warranty Support</a></li>
+            <li><a href="#footerContact" class="footer-link">SHINE Assured Program</a></li>
+            <li><a href="#footerContact" class="footer-link">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <!-- Consumer Policy -->
+        <div class="footer-col">
+          <h4 class="footer-column-title">CONSUMER POLICY</h4>
+          <ul class="footer-links-list">
+            <li><a href="#" class="footer-link">Terms of Use</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Security Safeguards</a></li>
+            <li><a href="#" class="footer-link">E-Waste Management</a></li>
+            <li><a href="#" class="footer-link">Grievance Redressal</a></li>
+            <li><a href="#" class="footer-link">Compliance & BIS</a></li>
+            <li><a href="#" class="footer-link">Corporate Information</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Registered Office -->
+        <div class="footer-col" id="footerContact">
+          <h4 class="footer-column-title">REGISTERED OFFICE</h4>
+          <div class="footer-contact-info">
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>
+                <strong>SHINE TECH Retail Pvt Ltd</strong><br />
+                Buildings Alyssa, Begonia & Clover, Embassy Tech Village, Outer Ring Road, Bengaluru, Karnataka 560103, India
+              </span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>Toll Free: 1800-202-9898 (9 AM - 9 PM)</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>support@shinetech.in</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Response Time: Within 2 Hours</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Bar with Payment Icons & Copyright -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <div class="copyright-text">
+          &copy; 2026 SHINE TECH. All Rights Reserved. Smarter Tech. Brighter You.
+        </div>
+        <div class="payment-methods-strip">
+          <span class="payment-method-pill"><i class="fa-brands fa-cc-visa"></i> VISA</span>
+          <span class="payment-method-pill"><i class="fa-brands fa-cc-mastercard"></i> MASTERCARD</span>
+          <span class="payment-method-pill"><i class="fa-solid fa-credit-card"></i> RUPAY</span>
+          <span class="payment-method-pill"><i class="fa-solid fa-mobile-screen"></i> UPI</span>
+          <span class="payment-method-pill"><i class="fa-solid fa-building-columns"></i> NET BANKING</span>
+          <span class="payment-method-pill"><i class="fa-solid fa-calendar-check"></i> NO COST EMI</span>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="drawer-header">
+      <img src="assets/images/shine-tech-logo.png" alt="SHINE TECH" class="drawer-logo" />
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="drawer-user-card">
+      <div class="drawer-user-avatar">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="drawer-user-info">
+        <strong>Hello, Tech Explorer</strong>
+        <span>Welcome to SHINE TECH</span>
+      </div>
+    </div>
+    
+    <div class="drawer-section-title">Shop by Category</div>
+    <nav class="drawer-nav-list" id="drawerNavList">
+      <!-- Populated via JS -->
+    </nav>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Homepage Specific Dynamic Hydration
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Render Top Category Navigation Strip
+      const catContainer = document.getElementById('categoryNavContainer');
+      const drawerNavList = document.getElementById('drawerNavList');
+
+      if (typeof SHINE_CATEGORIES !== 'undefined' && catContainer) {
+        catContainer.innerHTML = SHINE_CATEGORIES.map(cat => `
+          <a href="pages/products.html?category=${cat.id}" class="category-nav-item" title="${cat.banner}">
+            <div class="category-nav-icon">
+              <i class="${cat.icon}"></i>
+            </div>
+            <span class="category-nav-label">${cat.name}</span>
+          </a>
+        `).join('');
+      }
+
+      if (typeof SHINE_CATEGORIES !== 'undefined' && drawerNavList) {
+        drawerNavList.innerHTML = SHINE_CATEGORIES.map(cat => `
+          <a href="pages/products.html?category=${cat.id}" class="drawer-nav-item">
+            <i class="${cat.icon}"></i>
+            <span>${cat.name}</span>
+          </a>
+        `).join('') + `
+          <div class="drawer-section-title">My Account & Utilities</div>
+          <a href="pages/cart.html" class="drawer-nav-item">
+            <i class="fa-solid fa-cart-shopping"></i> My Cart
+          </a>
+          <a href="pages/wishlist.html" class="drawer-nav-item">
+            <i class="fa-solid fa-heart"></i> My Wishlist
+          </a>
+          <a href="pages/products.html?filter=deals" class="drawer-nav-item">
+            <i class="fa-solid fa-fire"></i> Deals of the Day
+          </a>
+        `;
+      }
+
+      // 2. Render Featured Categories Grid (6 top tiles)
+      const featGrid = document.getElementById('featuredCategoriesGrid');
+      if (featGrid && typeof SHINE_CATEGORIES !== 'undefined') {
+        const topTiles = SHINE_CATEGORIES.slice(0, 6);
+        featGrid.innerHTML = topTiles.map(cat => `
+          <a href="pages/products.html?category=${cat.id}" class="cat-tile-card">
+            <div class="cat-tile-icon">
+              <i class="${cat.icon}"></i>
+            </div>
+            <div class="cat-tile-name">${cat.name}</div>
+            <div class="cat-tile-desc">${cat.count}+ Products Available</div>
+          </a>
+        `).join('');
+      }
+
+      // 3. Render Deals of the Day Rail
+      const dealsRail = document.getElementById('dealsShelfRail');
+      if (dealsRail && typeof SHINE_CATALOG !== 'undefined') {
+        const deals = SHINE_CATALOG.getDeals();
+        dealsRail.innerHTML = deals.map(p => createProductCardHTML(p)).join('');
+      }
+
+      // 4. Render Hardware & GPUs Rail
+      const hwRail = document.getElementById('hardwareShelfRail');
+      if (hwRail && typeof SHINE_CATALOG !== 'undefined') {
+        const hwProducts = SHINE_CATALOG.getAll().filter(p => ['gpus', 'cpus', 'motherboards', 'ram', 'ssds'].includes(p.category));
+        hwRail.innerHTML = hwProducts.map(p => createProductCardHTML(p)).join('');
+      }
+
+      // 5. Render Audio & Wearables Rail
+      const audioRail = document.getElementById('audioShelfRail');
+      if (audioRail && typeof SHINE_CATALOG !== 'undefined') {
+        const audioProducts = SHINE_CATALOG.getAll().filter(p => ['headphones', 'earbuds', 'speakers', 'smartwatches'].includes(p.category));
+        audioRail.innerHTML = audioProducts.map(p => createProductCardHTML(p)).join('');
+      }
+
+      // 6. Render Featured Products Grid
+      const featGridContainer = document.getElementById('featuredProductsGrid');
+      if (featGridContainer && typeof SHINE_CATALOG !== 'undefined') {
+        const featured = SHINE_CATALOG.getFeatured().slice(0, 8);
+        featGridContainer.innerHTML = featured.map(p => createProductCardHTML(p)).join('');
+      }
+    });
+  </script>
+</body>
+</html>
